@@ -1,2 +1,2 @@
 # Privacy Policies
-Privacy policies for EerieGoesD apps.
+Privacy policies for EERIE apps.
