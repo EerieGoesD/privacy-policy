@@ -1,2 +1,2 @@
-# reader-vault-privacy
-Reader Vault official privacy policy
+# Privacy Policies
+Privacy policies for EerieGoesD apps.
