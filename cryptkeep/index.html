@@ -1,28 +1,43 @@
 <h1>CryptKeep Privacy Policy</h1>
-<p><em>Last updated: March 19, 2026</em></p>
+<p><em>Last updated: March 30, 2026</em></p>
 
-<p>CryptKeep ("the app") is a zero-knowledge password manager. Your passwords are encrypted on your device before they ever leave it — only you can read them.</p>
+<p>CryptKeep ("the app") is a zero-knowledge password manager. Your passwords are encrypted on your device before they ever leave it - only you can read them.</p>
 
 <h2>What we collect</h2>
 <ul>
-  <li>Your email address, used solely for authentication.</li>
+  <li>Your email address, used for authentication and to link your Pro subscription.</li>
+  <li>Your full name, if you subscribe to CryptKeep Pro (collected by Stripe during checkout).</li>
   <li>Encrypted vault data (entries, categories), synced so you can access your vault across devices.</li>
 </ul>
 
 <h2>How encryption works</h2>
-<p>All sensitive data — titles, usernames, passwords, URLs, notes, and category names — is encrypted on your device using AES-256-GCM with authenticated encryption. The encryption key is derived from your master password via PBKDF2-SHA256 (up to 600,000 iterations) with a cryptographically random salt. Your master password never leaves your device and is never stored anywhere.</p>
+<p>All sensitive data - titles, usernames, passwords, URLs, notes, and category names - is encrypted on your device using AES-256-GCM with authenticated encryption. The encryption key is derived from your master password via PBKDF2-SHA256 (up to 600,000 iterations) with a cryptographically random salt. Your master password never leaves your device and is never stored anywhere.</p>
 
 <h2>What the server sees</h2>
 <p>Encrypted vault data is synced to Supabase, a third-party backend service. Because encryption and decryption happen entirely on your device, the server only ever receives and stores encrypted data. Neither the developer nor Supabase can read your passwords or vault contents.</p>
 
+<h2>Two-Factor Authentication</h2>
+<p>If you enable two-factor authentication (2FA), a TOTP secret is generated and stored in your account metadata on Supabase. This secret is used to verify your identity during sign-in. No 2FA data is shared with third parties.</p>
+
+<h2>Payments and subscriptions</h2>
+<p>CryptKeep Pro subscriptions are processed by Stripe, a third-party payment processor. When you subscribe, Stripe collects your name, email, and payment details under their own privacy policy. CryptKeep does not store your payment card information. Your email address is used to link your Stripe subscription to your CryptKeep account. For details on how Stripe handles your data, see <a href="https://stripe.com/privacy" target="_blank">Stripe's Privacy Policy</a>.</p>
+
+<h2>Pro feature data sharing</h2>
+<p>CryptKeep Pro includes features that communicate with third-party services:</p>
+<ul>
+  <li><strong>Breach monitoring:</strong> To check if your passwords have appeared in known data breaches, the app sends the first 5 characters of each password's SHA-1 hash to <a href="https://haveibeenpwned.com" target="_blank">Have I Been Pwned</a> via a server-side function. This uses a k-anonymity model - your actual passwords are never transmitted, and the partial hashes cannot be used to recover them.</li>
+  <li><strong>Custom icons:</strong> To display website favicons next to your vault entries, the app requests icons from Google's public favicon service using the domain names from your saved URLs. Google may log these requests under their own privacy policy.</li>
+</ul>
+<p>These features are only active for Pro subscribers and only run when you open the Password Health dashboard or view your vault.</p>
+
 <h2>What we don't collect</h2>
-<p>The app does not collect analytics, telemetry, usage data, or device information. It does not use advertising SDKs. The only network communication is with Supabase for authentication and encrypted vault sync.</p>
+<p>The app does not collect analytics, telemetry, usage data, or device information. It does not use advertising SDKs.</p>
 
 <h2>Account deletion</h2>
-<p>You can permanently delete your account and all associated data directly from the app in Settings. This action is irreversible.</p>
+<p>You can permanently delete your account and all associated data directly from the app in Settings. This action is irreversible. If you have an active Pro subscription, you should cancel it in Stripe before deleting your account.</p>
 
 <h2>Master password recovery</h2>
-<p>If you lose your master password, your vault cannot be recovered. By design, no one — including the developer — can decrypt your data.</p>
+<p>If you lose your master password, your vault cannot be recovered. By design, no one - including the developer - can decrypt your data.</p>
 
 <h2>Third-party distribution</h2>
 <p>If the app is obtained through the Microsoft Store, Apple App Store, or Google Play, the respective platform may process data related to download, purchase, and licensing under their own policies. This policy describes only processing performed by the CryptKeep app itself.</p>
