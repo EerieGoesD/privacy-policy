@@ -1,47 +1,78 @@
-<h1>Net Reaper Browser Extension - Privacy Policy</h1>
-<p><em>Last updated: March 26, 2026</em></p>
+# Net Reaper Privacy Policy
+Last updated: May 16, 2026
 
-<p>The Net Reaper browser extension ("the extension") intercepts browser downloads and routes them to the Net Reaper desktop application for managed downloading. It communicates exclusively with a locally installed native messaging host on your computer and does not send any data to external servers.</p>
+Net Reaper is a desktop download manager for Windows, with an optional browser extension for Chrome, Brave, and Edge. This policy describes what data both the desktop app and the extension access, store, and process. It applies to all components published by EERIE under the Net Reaper name.
 
-<h2>What the extension accesses</h2>
-<ul>
-  <li><strong>Download URLs</strong>: when a download starts, the extension reads the URL so it can forward it to the Net Reaper desktop app on your machine.</li>
-  <li><strong>HTTP request headers</strong>: the extension captures the Cookie and Referer headers that your browser already sends for the download request. These are forwarded to the desktop app so it can authenticate with the server on your behalf (e.g. to pass Cloudflare verification).</li>
-  <li><strong>Cookies</strong>: used only as a fallback if request headers are unavailable. Cookies are read for the specific download URL only and forwarded to the local desktop app. They are never stored, logged, or transmitted externally.</li>
-</ul>
+## Summary
+Net Reaper runs entirely on your computer. It does not communicate with any server operated by us, does not collect analytics or telemetry, and does not contain advertising. The only network requests it makes are the downloads you ask it to perform.
 
-<h2>How data flows</h2>
-<p>All data captured by the extension is sent exclusively to the Net Reaper desktop application running on your local machine, via Chrome's Native Messaging API. The communication path is:</p>
-<ol>
-  <li>Extension > Native Messaging Host (local Node.js process)</li>
-  <li>Native Messaging Host > Named Pipe (local IPC) > Net Reaper desktop app</li>
-</ol>
-<p>No data ever leaves your computer. There are no external API calls, servers, or cloud services involved.</p>
+## What the desktop app accesses
+- **Download URLs you provide**: either typed into the app, pasted from your clipboard (when clipboard URL detection is enabled), forwarded from the browser extension, or matched by a routing rule you defined.
+- **The contents of those URLs**: the app fetches the file at the URL using its built-in HTTP client (wreq, Chrome-style TLS) or, for HLS / m3u8 video streams, by invoking a local ffmpeg binary as a subprocess.
+- **The file system**: the app reads and writes inside the folders you choose as save destinations, and reads metadata of partial files to support resume after a connection drop.
+- **Headers received from the extension**: when a download originates from the browser extension, the app uses the Cookie, Referer, and User-Agent values the extension captured so it can replay the request with the same identity your browser used.
 
-<h2>What we store</h2>
-<ul>
-  <li><strong>Enabled/disabled state</strong>: a single boolean stored in <code>chrome.storage.local</code> to remember whether interception is on or off.</li>
-  <li><strong>Debug log</strong>: up to 50 recent log entries stored in <code>chrome.storage.local</code> for troubleshooting. These contain timestamps and truncated URLs. The log is visible only in the extension popup and can be cleared at any time. It is never transmitted externally.</li>
-</ul>
+## What the browser extension accesses
+- **Download URLs**: when a download starts in your browser, the extension reads the URL so it can forward it to the locally installed Net Reaper desktop app.
+- **HTTP request headers**: the extension captures the Cookie, Referer, and User-Agent headers that your browser already sends for the download request. These are forwarded to the desktop app so it can replay the request with the same identity your browser used. This is what lets Net Reaper download files from sites protected by Cloudflare and similar services.
+- **Cookies (fallback)**: used only as a fallback if request headers are unavailable. Cookies are read for the specific download URL only and forwarded to the local desktop app. They are never stored, logged, or transmitted externally.
 
-<h2>What we don't collect</h2>
-<p>The extension does not collect analytics, telemetry, usage statistics, browsing history, personal information, or any data beyond what is described above. It does not communicate with any external server. It contains no advertising, tracking pixels, or third-party scripts.</p>
+## How data flows
+All data captured by the extension is sent exclusively to the Net Reaper desktop application running on the same computer, via Chrome's Native Messaging API. The communication path is:
 
-<h2>Permissions explained</h2>
-<ul>
-  <li><strong>downloads</strong>: required to detect when a download starts and to cancel the browser's built-in download so Net Reaper can handle it instead.</li>
-  <li><strong>nativeMessaging</strong>: required to communicate with the locally installed Net Reaper desktop application via Chrome's Native Messaging API.</li>
-  <li><strong>storage</strong>: required to persist the enabled/disabled toggle and debug log entries across browser sessions.</li>
-  <li><strong>cookies</strong>: required as a fallback to read authentication cookies for the download URL, so the desktop app can authenticate with the server. Cookies are only read on-demand for the specific download URL and are never stored or sent externally.</li>
-  <li><strong>webRequest</strong>: required to capture the HTTP method (GET/POST) and request headers (Cookie, Referer) for download requests, so the desktop app can replay the request with identical authentication.</li>
-  <li><strong>host_permissions (&lt;all_urls&gt;)</strong>: required because downloads can originate from any website. The extension only acts when a download event fires. It does not monitor, modify, or intercept regular browsing traffic.</li>
-</ul>
+Browser extension > Native Messaging Host (local Rust binary: net-reaper-host.exe) > Named Pipe (\\.\pipe\net-reaper, local inter-process communication) > Net Reaper desktop app
 
-<h2>Third-party services</h2>
-<p>None. The extension does not use any third-party services, SDKs, or libraries.</p>
+No data ever leaves your computer. There are no external API calls, servers, or cloud services involved on our side. The only outbound network connections Net Reaper makes are HTTP requests to URLs you have explicitly asked it to download.
 
-<h2>Changes to this policy</h2>
-<p>If this policy is updated, the new version will be posted at this URL. The "last updated" date at the top will reflect the most recent revision.</p>
+## What is stored locally
+The desktop app stores the following in its local application data folder and in the WebView's localStorage:
+- **Settings**: default save folder, parallel-segments setting, concurrent-download limit, speed limit, smooth-speed-ETA toggle, debug-mode toggle, "don't ask for directory" toggle.
+- **Per-domain and per-extension routing rules** that you create.
+- **Download history**: filename, source URL, file size, status (Completed / Failed / Cancelled etc.), save path, and timestamps. Capped at 500 entries.
+- **Debug log**: real-time log of download events, kept only in memory and visible only in the Debug panel. Can be exported as TXT or CSV at your request, copied to clipboard, or cleared at any time.
 
-<h2>Contact</h2>
-<p>For questions about this privacy policy, open an issue at <a href="https://github.com/EerieGoesD/net-reaper/issues">github.com/EerieGoesD/net-reaper/issues</a>.</p>
+The browser extension stores in chrome.storage.local:
+- **Enabled / disabled state**: a single boolean to remember whether interception is on.
+- **Debug log**: up to 50 recent log entries containing timestamps and truncated URLs. Visible only in the extension popup. Can be cleared at any time. Never transmitted externally.
+
+## What is NOT collected
+Net Reaper does NOT collect, transmit, or store any of the following:
+- Analytics or usage statistics
+- Crash reports
+- Telemetry of any kind
+- Browsing history (beyond the specific URLs you choose to download)
+- Personal information
+- Email addresses, account identifiers, or licence keys
+- Advertising identifiers
+- Update-check pings or "is app running" beacons
+
+The desktop app contains no third-party trackers, no advertising SDKs, no analytics libraries, and no auto-update mechanism.
+
+## Browser extension permissions explained
+- **downloads**: required to detect when a download starts in your browser and to cancel the browser's built-in download so the desktop app can handle it instead.
+- **nativeMessaging**: required to communicate with the locally installed Net Reaper desktop application via Chrome's Native Messaging API.
+- **storage**: required to persist the enabled / disabled toggle and the debug log across browser sessions.
+- **cookies**: required as a fallback to read authentication cookies for the download URL, so the desktop app can authenticate with the server. Cookies are only read on demand for the specific download URL and are never stored or sent externally.
+- **webRequest**: required to capture the HTTP method (GET / POST), Cookie, Referer, and User-Agent headers for download requests, so the desktop app can replay the request with identical identity.
+- **host_permissions (\<all_urls\>)**: required because downloads can originate from any website. The extension only acts when a download event fires. It does not monitor, modify, or intercept regular browsing traffic.
+
+## Third-party services
+None. Net Reaper does not use any third-party services, SDKs, or analytics libraries. The HLS / m3u8 grabber invokes a local ffmpeg binary (installed by you) as a subprocess; ffmpeg is not part of Net Reaper, runs entirely on your computer, and is governed by its own licence.
+
+## Children's privacy
+Net Reaper is not directed at children and does not knowingly collect any data from anyone.
+
+## Security
+All data Net Reaper handles stays on your local machine. The named pipe used for extension-to-app communication is restricted to local processes only (NULL DACL on the pipe is local-only on Windows by design). No remote process can connect to it.
+
+## Your choices
+- You can disable the browser extension's interception at any time via the toggle in its popup.
+- You can clear your download history at any time via the History panel.
+- You can clear the debug log at any time via the Debug panel.
+- You can uninstall the desktop app and the extension at any time through standard Windows and browser uninstall flows.
+
+## Changes to this policy
+If this policy is updated, the new version will be posted at this URL. The "Last updated" date at the top will reflect the most recent revision. Material changes will be noted in the desktop app's release notes.
+
+## Contact
+For questions about this privacy policy, open an issue at https://github.com/EerieGoesD/net-reaper/issues or email eeriegoesd@gmail.com.
