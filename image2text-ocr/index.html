@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Image2Text OCR Privacy Policy</title>
+</head>
+<body>
+  <h1>Image2Text OCR Privacy Policy</h1>
+  <p>Last updated: June 4, 2026</p>
+
+  <p>Image2Text OCR ("the extension") extracts text from images using on-device optical character recognition (OCR). You can drag to select a region of the current web page, capture the visible tab, or pick an image file from your computer. The selected image is processed locally in your browser using the bundled Tesseract engine, and the recognized text is shown to you for copying or saving. This policy describes what data the extension accesses, stores, and processes. It applies to the Image2Text OCR browser extension published by EERIE.</p>
+
+  <h2>Summary</h2>
+  <p>The OCR feature runs entirely on your device. Images you capture or open, and the text recognized from them, are never uploaded to us or to any third party. The extension makes no analytics, telemetry, or advertising network requests. The only external network communication happens through the optional paid upgrade, which is handled by ExtensionPay and Stripe as described below.</p>
+
+  <h2>What the extension accesses</h2>
+  <ul>
+    <li><strong>The visible image of your current tab</strong>: when you click Capture Tab or Capture Region, the extension captures a screenshot of the visible area of the tab you are on, so it can run OCR on it. This image is processed locally and is not transmitted anywhere.</li>
+    <li><strong>Image files you choose</strong>: when you use Pick Image, the file you select is read and processed locally for OCR only.</li>
+    <li><strong>The active page (region capture only)</strong>: when you click Capture Region, the extension injects a one-time selection overlay into the current page so you can draw a rectangle. It does not read, monitor, modify, or transmit the page's content, and it acts only when you trigger it.</li>
+  </ul>
+
+  <h2>What is stored locally</h2>
+  <p>The extension stores the following in your browser's local storage, on your device only:</p>
+  <ul>
+    <li><strong>The most recent extracted text</strong>, so it remains visible when you reopen the popup.</li>
+    <li><strong>Free-trial usage count</strong>, to track how many free OCR extractions you have used.</li>
+    <li><strong>A temporary captured image</strong> being passed to the result view, which is removed after processing.</li>
+  </ul>
+  <p>None of this is transmitted to us or to any third party.</p>
+
+  <h2>Payments and the paid upgrade</h2>
+  <p>Image2Text OCR is free to try. To unlock unlimited extractions you can make a one-time purchase, which is processed by <strong>ExtensionPay</strong> (a third-party service) using <strong>Stripe</strong> as the payment processor. When you choose to upgrade:</p>
+  <ul>
+    <li>You enter your email address and payment-card details on ExtensionPay's and Stripe's own hosted pages. The extension does not see or store your payment-card details.</li>
+    <li>ExtensionPay stores your email address and your paid status to manage your purchase. The extension checks your paid status with ExtensionPay's servers so it knows whether to unlock unlimited use.</li>
+    <li>As part of this normal internet communication, ExtensionPay and Stripe may receive standard technical connection data (for example your IP address) and the email address you provide. Their handling of that data is governed by their own privacy policies.</li>
+  </ul>
+  <p>If you never upgrade, the extension makes no external network requests at all.</p>
+
+  <h2>What is NOT collected</h2>
+  <ul>
+    <li>The images you capture or open, and the text recognized from them, are never uploaded.</li>
+    <li>No analytics, usage statistics, telemetry, or crash reports.</li>
+    <li>No browsing history. The extension does not track the pages you visit.</li>
+    <li>No advertising identifiers, and no advertising or tracking SDKs.</li>
+  </ul>
+
+  <h2>Permissions explained</h2>
+  <ul>
+    <li><strong>activeTab</strong>: to capture the visible image of your current tab for OCR, only when you trigger it.</li>
+    <li><strong>scripting</strong>: to inject the one-time selection overlay into the current page for region capture.</li>
+    <li><strong>downloads</strong>: to save extracted text as a .txt file when you click Save.</li>
+    <li><strong>storage</strong>: to keep the most recent result, the free-trial count, and a temporary image on your device.</li>
+    <li><strong>host permissions (&lt;all_urls&gt;)</strong>: required because OCR can be performed on any web page you choose. The extension only acts on the tab you are on and only when you trigger it; it does not monitor or transmit page content in the background.</li>
+  </ul>
+
+  <h2>Third-party services</h2>
+  <p>The only third-party services involved are ExtensionPay and Stripe, and only when you choose to make a purchase. The OCR functionality itself uses no third-party services; it runs locally using the bundled open-source Tesseract engine.</p>
+
+  <h2>Children's privacy</h2>
+  <p>The extension is not directed at children and does not knowingly collect any data from anyone.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy is updated, the new version will be posted at this URL and the "Last updated" date above will reflect the most recent revision.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this privacy policy, email eeriegoesd@gmail.com or open an issue at https://github.com/EerieGoesD/image2text/issues</p>
+</body>
+</html>
