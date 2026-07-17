@@ -1,5 +1,5 @@
 <h1>CryptKeep Privacy Policy</h1>
-<p><em>Last updated: March 30, 2026</em></p>
+<p><em>Last updated: July 16, 2026</em></p>
 
 <p>CryptKeep ("the app") is a zero-knowledge password manager. Your passwords are encrypted on your device before they ever leave it - only you can read them.</p>
 
@@ -11,13 +11,20 @@
 </ul>
 
 <h2>How encryption works</h2>
-<p>All sensitive data - titles, usernames, passwords, URLs, notes, and category names - is encrypted on your device using AES-256-GCM with authenticated encryption. The encryption key is derived from your master password via PBKDF2-SHA256 (up to 600,000 iterations) with a cryptographically random salt. Your master password never leaves your device and is never stored anywhere.</p>
+<p>All sensitive data - titles, usernames, passwords, URLs, notes, category names, and any two-factor (authenticator) codes you save in an entry - is encrypted on your device using AES-256-GCM with authenticated encryption. The encryption key is derived from your master password via PBKDF2-SHA256 (up to 600,000 iterations) with a cryptographically random salt. Your master password never leaves your device and is never stored anywhere.</p>
 
 <h2>What the server sees</h2>
 <p>Encrypted vault data is synced to Supabase, a third-party backend service. Because encryption and decryption happen entirely on your device, the server only ever receives and stores encrypted data. Neither the developer nor Supabase can read your passwords or vault contents.</p>
 
-<h2>Two-Factor Authentication</h2>
-<p>If you enable two-factor authentication (2FA), a TOTP secret is generated and stored in your account metadata on Supabase. This secret is used to verify your identity during sign-in. No 2FA data is shared with third parties.</p>
+<h2>Two-factor authentication</h2>
+<p>If you enable two-factor authentication (2FA) on your CryptKeep account, a TOTP secret is generated and stored in your account metadata on Supabase. This secret is used to verify your identity during sign-in. No 2FA data is shared with third parties.</p>
+<p>Separately, CryptKeep includes a built-in authenticator that can store the two-factor codes for your other accounts (for example, the code a website asks for after your password). These codes are stored inside your encrypted vault, exactly like your passwords, and are generated on your device. They are never sent anywhere.</p>
+
+<h2>Camera</h2>
+<p>On devices with a camera, CryptKeep can scan a QR code to set up a two-factor code for an account. The camera is used only at that moment, to read the code you point it at. No photos, video, or camera data are stored or sent anywhere; only the setup key inside the QR code is saved, encrypted, in your vault.</p>
+
+<h2>Unlocking with biometrics</h2>
+<p>If your device supports it, you can unlock your vault with biometrics or your device sign-in (for example, fingerprint, face, or Windows Hello). When you turn this on, an unlock key is stored in your device's secure storage (such as the Android Keystore, the iOS Keychain, or Windows Hello). This stays on your device and is never sent anywhere.</p>
 
 <h2>Payments and subscriptions</h2>
 <p>CryptKeep Pro subscriptions are processed by Stripe, a third-party payment processor. When you subscribe, Stripe collects your name, email, and payment details under their own privacy policy. CryptKeep does not store your payment card information. Your email address is used to link your Stripe subscription to your CryptKeep account. For details on how Stripe handles your data, see <a href="https://stripe.com/privacy" target="_blank">Stripe's Privacy Policy</a>.</p>
@@ -26,9 +33,9 @@
 <p>CryptKeep Pro includes features that communicate with third-party services:</p>
 <ul>
   <li><strong>Breach monitoring:</strong> To check if your passwords have appeared in known data breaches, the app sends the first 5 characters of each password's SHA-1 hash to <a href="https://haveibeenpwned.com" target="_blank">Have I Been Pwned</a> via a server-side function. This uses a k-anonymity model - your actual passwords are never transmitted, and the partial hashes cannot be used to recover them.</li>
-  <li><strong>Custom icons:</strong> To display website favicons next to your vault entries, the app requests icons from Google's public favicon service using the domain names from your saved URLs. Google may log these requests under their own privacy policy.</li>
+  <li><strong>Website icons:</strong> This feature is turned <strong>off by default</strong>. If you turn on "Website Icons" in Settings, the app requests site logos from Google's public favicon service using the domain names from your saved URLs, so Google may see which sites you have saved and may log these requests under their own privacy policy. While the setting is off, no icon requests are made and nothing is shared with Google.</li>
 </ul>
-<p>These features are only active for Pro subscribers and only run when you open the Password Health dashboard or view your vault.</p>
+<p>These features are only active for Pro subscribers. Breach monitoring runs when you open the Password Health dashboard; website icons run only if you have turned the setting on.</p>
 
 <h2>What we don't collect</h2>
 <p>The app does not collect analytics, telemetry, usage data, or device information. It does not use advertising SDKs.</p>
