@@ -7,16 +7,27 @@
 <p>Nothing. Deck Transfer has no user accounts, no analytics, no telemetry, and no advertising. We never receive your files, your Deck's details, or anything about how you use the app.</p>
 
 <h2>Where your data is stored</h2>
-<p>The app saves its data in its own storage folder on your computer: your settings, the Decks you saved (including the SSH password you typed for each one), your saved folder paths, the folders you gave it access to, your transfer history, your scheduled syncs, and, on macOS, a copy of your trial and purchase status. This data never leaves your computer.</p>
+<p>The app keeps its data in its own folders on your computer:</p>
+<ul>
+  <li>your settings and the Decks you saved, including the SSH password you typed for each one;</li>
+  <li>your saved folder paths, and on macOS the files and folders you gave it access to;</li>
+  <li>your transfer history and your scheduled syncs (a scheduled sync keeps the Deck password it needs to run);</li>
+  <li>a log of the app's activity, such as your Deck's network address, the folders you browsed and the files you transferred, shown in the Debug window for troubleshooting;</li>
+  <li>on macOS, a copy of your trial and purchase status.</li>
+</ul>
+<p>None of this leaves your computer.</p>
 
 <h2>Your files</h2>
 <p>Files you send or download travel directly between your computer and your Steam Deck, over your own cable or local network, encrypted by SSH. They do not pass through any server of ours or anyone else's. Downloads are saved only to the folder you choose.</p>
 
 <h2>Local network</h2>
-<p>To find your Deck, the app looks for devices on your local network, and on a direct Ethernet cable, that accept SSH connections. It connects only to find your Deck and to sign in to the Deck you choose.</p>
+<p>To find your Deck, the app looks for devices on your local network, and on a direct Ethernet cable, that accept SSH connections. It tries to sign in to each of them as the user "deck" with the password you typed, over an encrypted SSH connection, until one accepts it. After that it connects only to the Deck it found.</p>
 
 <h2>Network use</h2>
-<p>Apart from connecting to your Steam Deck, the app works offline. Links inside the app, such as "Report Issue", "Discussions" and "Feature Request", open in your web browser only when you click them, taking you to websites that operate under their own privacy policies.</p>
+<p>Apart from your Steam Deck, the app connects to nothing of ours or anyone else's. On macOS, Apple's App Store checks your trial and purchase status. Links inside the app, such as "Report Issue", "Discussions" and "Feature Request", open in your web browser only when you click them, taking you to websites that operate under their own privacy policies.</p>
+
+<h2>Exports</h2>
+<p>Export Config writes your saved Decks (including their passwords), your saved folder paths and your settings to a file in the location you choose. That file stays on your device and under your control. The app never uploads it.</p>
 
 <h2>Purchases</h2>
 <p>On macOS, the free trial and the one-time purchase are handled by Apple through the App Store. We never see your payment details or your Apple ID.</p>
