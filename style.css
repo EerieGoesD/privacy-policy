@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('/fonts/ShareTechMono.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Same colours as eeriegoesd.com, and the same saved theme, so a page opened
+   from the site keeps the look the visitor picked there. */
+:root {
+  --bg: #fcfcfd;
+  --text: #1c2024;
+  --accent-rgb: 13,116,206;
+  --accent2-rgb: 194,41,138;
+  --dim-rgb: 28,32,36;
+  --scanline: rgba(0,0,0,.045);
+  --vignette: rgba(0,0,0,.05);
+}
+html[data-theme="dark"] {
+  --bg: #111113;
+  --text: #edeef0;
+  --accent-rgb: 112,184,255;
+  --accent2-rgb: 255,141,204;
+  --dim-rgb: 237,238,240;
+  --scanline: rgba(255,255,255,.035);
+  --vignette: rgba(0,0,0,.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, var(--scanline) 3px, var(--scanline) 4px);
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 60%, var(--vignette) 100%);
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+a {
+  color: rgb(var(--accent-rgb));
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color .3s;
+}
+a:hover { text-decoration: underline; }
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: rgba(var(--dim-rgb),.45);
+  letter-spacing: 1px;
+}
+.back:hover { color: rgb(var(--accent-rgb)); text-decoration: none; }
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(var(--accent-rgb),.15);
+}
+h1::before { content: '> '; color: rgba(var(--accent-rgb),.5); }
+
+h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(var(--accent2-rgb));
+  letter-spacing: 1px;
+  margin: 28px 0 8px;
+}
+h2::before { content: '_ '; }
+
+p, li {
+  font-size: 13px;
+  color: rgba(var(--dim-rgb),.75);
+  line-height: 1.7;
+}
+p { margin: 8px 0; }
+p em { font-style: normal; color: rgba(var(--dim-rgb),.45); }
+
+ul {
+  margin: 8px 0;
+  padding-left: 18px;
+  border-left: 1px solid rgba(var(--accent-rgb),.15);
+  list-style: none;
+}
+li { margin: 6px 0; }
+li::before { content: '- '; color: rgba(var(--accent-rgb),.6); }
+
+strong { color: var(--text); font-weight: bold; }
+code { font-family: inherit; color: var(--text); }
+
+.list { border-left: none; padding-left: 0; }
+.list li { font-size: 14px; margin: 4px 0; }
+.list li::before { content: '> '; }
+
+@media (max-width: 700px) {
+  .wrap { padding: 24px 16px 40px; }
+  h1 { font-size: 18px; }
+}

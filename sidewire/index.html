@@ -1,44 +1,53 @@
-# SideWire Privacy Policy
-Last updated: October 27, 2026
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SideWire Privacy Policy | EERIE</title>
+  <meta name="theme-color" content="#fcfcfd">
+  <meta name="color-scheme" content="light dark">
+  <script>try{if(localStorage.getItem('eerie.theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+  <link rel="stylesheet" href="/privacy-policy/style.css">
+</head>
+<body>
+<div class="wrap">
+<a href="/privacy-policy/" class="back">&lt; all policies</a>
 
-SideWire is a message and file transfer tool for moving content between your own devices. This policy explains what data is processed when you use the app, particularly when using Remote mode via the SideWire relay server. It applies to all components published by EERIE under the SideWire name.
-
-## Local Mode (Same Wi-Fi)
-When using Local mode, no data leaves your local network. All communication happens directly between your devices over your router. No data is sent to any external server, and SideWire does not collect, store, or transmit any information to us. Files received by a device are stored, encrypted, in a temporary folder on that device and are automatically deleted after about an hour.
-
-## Remote Mode (Relay Server)
-When using Remote mode, your device connects to the SideWire relay server at sidewire-relay.eeriegoesd.workers.dev, hosted on Cloudflare, so that devices that are not on the same network can reach each other. Older versions of the app connect to the previous relay at sidewire-relay.fly.dev, hosted on Fly.io, which processes the same data in the same way, except that it keeps room data in memory instead of in storage.
-
-Your messages, files, and file names are end-to-end encrypted on your device before they are sent (AES-256-GCM, with a key derived from your room password). The relay only ever sees encrypted data it cannot read, and your password is never sent to the relay.
-
-The following data is processed by the relay to operate the service:
-
-- **IP address** - Your public IP address is used for abuse prevention and rate limiting only, and appears in the server's operational logs.
-- **Device name** - The name you choose (for example "John's Phone") is shared with other devices in your room and also appears in the server's operational logs.
-- **Room code** - The room identifier is stored while the room is active.
-- **Messages** - Text messages are stored as encrypted data the server cannot read, in the room's storage, while the room exists. They are deleted when the host leaves or disconnects.
-- **Files** - File contents and file names are encrypted on your device, so the relay only ever handles data it cannot read. The encrypted file is kept in the room's storage while the room is open, so devices that join later can still receive it, and is deleted when the room closes. Only the file size (never the name) is logged, for abuse prevention.
-- **Subscription check (Android)** - When an Android device hosts a Remote room, the app sends its Google Play purchase token to the relay, which asks Google Play whether the Remote subscription is active. The answer is held in memory for up to 5 minutes and is not stored.
-
-## Data Retention
-- Room data (messages and files, all encrypted) is deleted when the host leaves, disconnects, or closes the room. If that is missed, it is deleted within 24 hours.
-- Operational logs (IP address, device name, room code, file sizes) are kept for up to 7 days.
-- If an IP address is banned for abuse, it stays on a ban list until it is removed.
-- Nothing else is kept after a room closes.
-
-## Why We Log IP Addresses
-IP logging is used solely for abuse prevention - detecting and rate-limiting clients that send excessive traffic or try to disrupt the service. We do not sell, share, or use IP data for any other purpose.
-
-## Third-Party Services
-The relay server is hosted on Cloudflare, and Cloudflare's privacy policy applies to their infrastructure (https://www.cloudflare.com/privacypolicy/). Older versions of the app use the previous relay on Fly.io, where Fly.io's privacy policy applies (https://fly.io/legal/privacy-policy/). Android subscriptions are handled by Google Play, where Google's privacy policy applies (https://policies.google.com/privacy). The relay is open source and can be self-hosted if you prefer to run your own.
-
-## Your Rights (GDPR / CCPA)
-Depending on your jurisdiction, you may have the right to request access to data about you, request its deletion, or object to processing. SideWire has no user accounts and does not keep personal data after a room closes: room data is erased when the room closes, and the only remaining records are short-lived operational logs (up to about 7 days) and, for an IP address banned for abuse, the ban list. If you have concerns, contact us below.
-
-## Children's Privacy
-SideWire is not directed at children and does not knowingly collect any data from anyone.
-
-## Contact
-For privacy-related inquiries, open an issue at https://github.com/EerieGoesD/sidewire/issues or email eeriegoesd@gmail.com.
-
-SideWire is provided by EERIE. No accounts. No tracking. Local mode stays on your network; Remote mode is end-to-end encrypted.
+<h1>SideWire Privacy Policy</h1>
+<p>Last updated: October 27, 2026</p>
+<p>SideWire is a message and file transfer tool for moving content between your own devices. This policy explains what data is processed when you use the app, particularly when using Remote mode via the SideWire relay server. It applies to all components published by EERIE under the SideWire name.</p>
+<h2>Local Mode (Same Wi-Fi)</h2>
+<p>When using Local mode, no data leaves your local network. All communication happens directly between your devices over your router. No data is sent to any external server, and SideWire does not collect, store, or transmit any information to us. Files received by a device are stored, encrypted, in a temporary folder on that device and are automatically deleted after about an hour.</p>
+<h2>Remote Mode (Relay Server)</h2>
+<p>When using Remote mode, your device connects to the SideWire relay server at sidewire-relay.eeriegoesd.workers.dev, hosted on Cloudflare, so that devices that are not on the same network can reach each other. Older versions of the app connect to the previous relay at sidewire-relay.fly.dev, hosted on Fly.io, which processes the same data in the same way, except that it keeps room data in memory instead of in storage.</p>
+<p>Your messages, files, and file names are end-to-end encrypted on your device before they are sent (AES-256-GCM, with a key derived from your room password). The relay only ever sees encrypted data it cannot read, and your password is never sent to the relay.</p>
+<p>The following data is processed by the relay to operate the service:</p>
+<ul>
+<li><strong>IP address</strong> - Your public IP address is used for abuse prevention and rate limiting only, and appears in the server&#39;s operational logs.</li>
+<li><strong>Device name</strong> - The name you choose (for example &quot;John&#39;s Phone&quot;) is shared with other devices in your room and also appears in the server&#39;s operational logs.</li>
+<li><strong>Room code</strong> - The room identifier is stored while the room is active.</li>
+<li><strong>Messages</strong> - Text messages are stored as encrypted data the server cannot read, in the room&#39;s storage, while the room exists. They are deleted when the host leaves or disconnects.</li>
+<li><strong>Files</strong> - File contents and file names are encrypted on your device, so the relay only ever handles data it cannot read. The encrypted file is kept in the room&#39;s storage while the room is open, so devices that join later can still receive it, and is deleted when the room closes. Only the file size (never the name) is logged, for abuse prevention.</li>
+<li><strong>Subscription check (Android)</strong> - When an Android device hosts a Remote room, the app sends its Google Play purchase token to the relay, which asks Google Play whether the Remote subscription is active. The answer is held in memory for up to 5 minutes and is not stored.</li>
+</ul>
+<h2>Data Retention</h2>
+<ul>
+<li>Room data (messages and files, all encrypted) is deleted when the host leaves, disconnects, or closes the room. If that is missed, it is deleted within 24 hours.</li>
+<li>Operational logs (IP address, device name, room code, file sizes) are kept for up to 7 days.</li>
+<li>If an IP address is banned for abuse, it stays on a ban list until it is removed.</li>
+<li>Nothing else is kept after a room closes.</li>
+</ul>
+<h2>Why We Log IP Addresses</h2>
+<p>IP logging is used solely for abuse prevention - detecting and rate-limiting clients that send excessive traffic or try to disrupt the service. We do not sell, share, or use IP data for any other purpose.</p>
+<h2>Third-Party Services</h2>
+<p>The relay server is hosted on Cloudflare, and Cloudflare&#39;s privacy policy applies to their infrastructure (<a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a>). Older versions of the app use the previous relay on Fly.io, where Fly.io&#39;s privacy policy applies (<a href="https://fly.io/legal/privacy-policy/">https://fly.io/legal/privacy-policy/</a>). Android subscriptions are handled by Google Play, where Google&#39;s privacy policy applies (<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>). The relay is open source and can be self-hosted if you prefer to run your own.</p>
+<h2>Your Rights (GDPR / CCPA)</h2>
+<p>Depending on your jurisdiction, you may have the right to request access to data about you, request its deletion, or object to processing. SideWire has no user accounts and does not keep personal data after a room closes: room data is erased when the room closes, and the only remaining records are short-lived operational logs (up to about 7 days) and, for an IP address banned for abuse, the ban list. If you have concerns, contact us below.</p>
+<h2>Children&#39;s Privacy</h2>
+<p>SideWire is not directed at children and does not knowingly collect any data from anyone.</p>
+<h2>Contact</h2>
+<p>For privacy-related inquiries, open an issue at <a href="https://github.com/EerieGoesD/sidewire/issues">https://github.com/EerieGoesD/sidewire/issues</a> or email <a href="mailto:eeriegoesd@gmail.com">eeriegoesd@gmail.com</a>.</p>
+<p>SideWire is provided by EERIE. No accounts. No tracking. Local mode stays on your network; Remote mode is end-to-end encrypted.</p>
+</div>
+</body>
+</html>
