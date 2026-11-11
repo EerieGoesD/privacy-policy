@@ -14,11 +14,39 @@
 <a href="/privacy-policy/" class="back">&lt; all policies</a>
 
 <h1>Image2Text OCR Privacy Policy</h1>
-<p>Last updated: June 4, 2026</p>
+<p><em>Last updated: November 11, 2026</em></p>
 
-<p>Image2Text OCR ("the extension") extracts text from images using on-device optical character recognition (OCR). You can drag to select a region of the current web page, capture the visible tab, or pick an image file from your computer. The selected image is processed locally in your browser using the bundled Tesseract engine, and the recognized text is shown to you for copying or saving. This policy describes what data the extension accesses, stores, and processes. It applies to the Image2Text OCR browser extension published by EERIE.</p>
+<p>Image2Text OCR comes from EERIE as a desktop app and as a browser extension. Both read the text in images on your own device. This policy explains how each one handles your information: the desktop app first, then the browser extension.</p>
 
-<h2>Summary</h2>
+<h2>Desktop app</h2>
+<p>Image2Text OCR ("the app") is a desktop app from EERIE. It reads the text in a screen area you select, an image file you open, or a PDF, using the Tesseract engine that is part of the app.</p>
+<p>Summary: Image2Text OCR does not collect, store, transmit, or share any personal information. Everything you create stays on your own device.</p>
+
+<h2>Information the desktop app collects</h2>
+<p>None. Image2Text OCR has no user accounts, no sign-in, and no analytics or tracking.</p>
+
+<h2>Where the desktop app stores your data</h2>
+<p>Your history (the text read from each image, a copy of that image with a small thumbnail, its name and the settings used to read it) and your preferences (page layout, auto-enhance, line wrapping, debug mode, theme and whether the usage readout is shown) are saved on your own computer. History keeps the last 100 entries, and you can delete one entry or all of them at any time. On its first run, the app copies the history and settings of the earlier Windows version of Image2Text OCR if they are on the same computer. None of this is uploaded to us or to any server, and we have no access to it.</p>
+
+<h2>Screen capture</h2>
+<p>When you choose Capture Screen Area, the app reads only the area you drag on the screen, at the moment you let go. It does not record the screen at any other time.</p>
+
+<h2>Files you save</h2>
+<p>Save writes the extracted text as a TXT, Markdown or JSON file to a location you choose, and Batch saves one combined file or one file per image to a folder you choose. Debug mode keeps a log of the app's own activity in memory only; it is cleared when the app closes unless you export it to a file yourself. These files stay on your device and under your control.</p>
+
+<h2>Desktop app network use</h2>
+<p>Image2Text OCR works fully offline and does not send your data anywhere. The text recognition engine and its English language data are part of the app, so nothing is downloaded while it reads, and its fonts are the ones already on your system. The only time it opens a connection is when you click a link inside the app (such as the footer links), which opens that web page in your default browser.</p>
+
+<h2>Desktop app third parties</h2>
+<p>Image2Text OCR contains no third-party trackers, advertising SDKs, or analytics libraries, and does not share data with third parties, because it collects none.</p>
+
+<h2>Where you get the desktop app</h2>
+<p>If you get Image2Text OCR through an app store such as the Microsoft Store, that platform may process data related to your download, purchase and licensing under its own privacy policy. This policy describes only what the app itself does.</p>
+
+<h2>Browser extension</h2>
+<p>Image2Text OCR ("the extension") extracts text from images using on-device optical character recognition (OCR). You can drag to select a region of the current web page, capture the visible tab, or pick an image file from your computer. The selected image is processed locally in your browser using the bundled Tesseract engine, and the recognized text is shown to you for copying or saving. The sections below describe what data the extension accesses, stores, and processes. They apply to the Image2Text OCR browser extension published by EERIE.</p>
+
+<h2>Extension summary</h2>
 <p>The OCR feature runs entirely on your device. Images you capture or open, and the text recognized from them, are never uploaded to us or to any third party. The extension makes no analytics, telemetry, or advertising network requests. The only external network communication happens through the optional paid upgrade, which is handled by ExtensionPay and Stripe as described below.</p>
 
 <h2>What the extension accesses</h2>
@@ -28,7 +56,7 @@
   <li><strong>The active page (region capture only)</strong>: when you click Capture Region, the extension injects a one-time selection overlay into the current page so you can draw a rectangle. It does not read, monitor, modify, or transmit the page's content, and it acts only when you trigger it.</li>
 </ul>
 
-<h2>What is stored locally</h2>
+<h2>What the extension stores locally</h2>
 <p>The extension stores the following in your browser's local storage, on your device only:</p>
 <ul>
   <li><strong>The most recent extracted text</strong>, so it remains visible when you reopen the popup.</li>
@@ -46,7 +74,7 @@
 </ul>
 <p>If you never upgrade, the extension makes no external network requests at all.</p>
 
-<h2>What is NOT collected</h2>
+<h2>What the extension does NOT collect</h2>
 <ul>
   <li>The images you capture or open, and the text recognized from them, are never uploaded.</li>
   <li>No analytics, usage statistics, telemetry, or crash reports.</li>
@@ -54,7 +82,7 @@
   <li>No advertising identifiers, and no advertising or tracking SDKs.</li>
 </ul>
 
-<h2>Permissions explained</h2>
+<h2>Extension permissions explained</h2>
 <ul>
   <li><strong>activeTab</strong>: to capture the visible image of your current tab for OCR, only when you trigger it.</li>
   <li><strong>scripting</strong>: to inject the one-time selection overlay into the current page for region capture.</li>
@@ -63,11 +91,11 @@
   <li><strong>host permissions (&lt;all_urls&gt;)</strong>: required because OCR can be performed on any web page you choose. The extension only acts on the tab you are on and only when you trigger it; it does not monitor or transmit page content in the background.</li>
 </ul>
 
-<h2>Third-party services</h2>
+<h2>Extension third-party services</h2>
 <p>The only third-party services involved are ExtensionPay and Stripe, and only when you choose to make a purchase. The OCR functionality itself uses no third-party services; it runs locally using the bundled open-source Tesseract engine.</p>
 
 <h2>Children's privacy</h2>
-<p>The extension is not directed at children and does not knowingly collect any data from anyone.</p>
+<p>The desktop app does not collect personal information from anyone, including children. The extension is not directed at children and does not knowingly collect any data from anyone.</p>
 
 <h2>Changes to this policy</h2>
 <p>If this policy is updated, the new version will be posted at this URL and the "Last updated" date above will reflect the most recent revision.</p>
