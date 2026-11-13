@@ -14,7 +14,7 @@
 <a href="/privacy-policy/" class="back">&lt; all policies</a>
 
 <h1>Audio EQ Overlay Privacy Policy</h1>
-<p><em>Last updated: August 11, 2026</em></p>
+<p><em>Last updated: November 13, 2026</em></p>
 
 <p>Audio EQ Overlay ("the app") is a desktop app from EERIE that adds a parametric equaliser to everything you hear on your computer. The app has no accounts, no sign-in, and no servers of ours. Everything it does happens on your own device.</p>
 
@@ -22,25 +22,28 @@
 <p>Nothing. Audio EQ Overlay has no user accounts, no analytics, no telemetry, and no advertising. We never see your settings, your audio, or anything else about your computer.</p>
 
 <h2>Your audio</h2>
-<p>The app measures the sound already playing on your computer so it can draw the live picture of it on screen. Those measurements exist only for the moment they are drawn. Audio is never recorded, never saved to a file, and never sent anywhere. The app does not use your microphone.</p>
+<p>The app measures the sound already playing on your computer so it can draw the live picture of it on screen. Those measurements exist only for the moment they are drawn. Audio is never recorded, never saved to a file, and never sent anywhere. The app never listens to your microphone. On a Mac, macOS asks for microphone permission the first time, because the app reads the sound coming from its own audio engine; that permission is used for nothing else.</p>
 
 <h2>Where your settings are stored</h2>
 <p>Your equaliser curve, saved presets, theme, opacity and window position are saved on your own computer, in the app's own storage and in a small settings folder shared with the sound engine. They never leave your device.</p>
 
 <h2>The sound engine</h2>
-<p>To shape what you hear, the app installs its own sound engine into the Windows audio pipeline and points your current playback device at it. This requires your permission through the standard Windows prompt. Whatever those settings were before are remembered so they can be put back. Nothing about your device or your audio is reported to us or to anyone else.</p>
+<p>On Windows, the app installs its own sound engine into the Windows audio pipeline and points your current playback device at it, with your permission through the standard Windows prompt. On a Mac, the audio engine is a separate installer you download from our support site and install yourself; it adds an output called "Audio EQ Overlay", and while the app is open your Mac's sound goes through it and on to the output you picked. In both cases your previous settings are remembered so they can be put back, and nothing about your device or your audio is reported to us or to anyone else.</p>
+
+<h2>Usage readout</h2>
+<p>The app shows how much processor time and memory it is using itself. Those numbers are read on your computer, shown in the window, and never sent anywhere.</p>
 
 <h2>Troubleshooting logs</h2>
 <p>Debug is switched off by default. When you switch it on, the app writes plain-text log files to a folder on your computer, containing things like your playback device's name and what the setup step did. They stay on your device, are never uploaded, and you can delete them at any time from the app.</p>
 
 <h2>Network use</h2>
-<p>Audio EQ Overlay works fully offline. The only time it opens a connection is when you click a link inside the app, such as "Support This Project", "Report Issue", "Discussions" or "Feature Request", which opens that web page in your default browser. Those are third-party websites that operate under their own privacy policies.</p>
+<p>Audio EQ Overlay works fully offline. It opens a connection only when you click a link inside the app, such as "Report Issue", "Discussions", "Feature Request" or "Get the audio engine", which opens that web page in your default browser under that site's own privacy policy, and, in the Mac App Store version, when it checks your free trial or purchase with the App Store.</p>
 
 <h2>Third parties</h2>
 <p>Audio EQ Overlay contains no third-party trackers, advertising SDKs, or analytics libraries. It does not share data with third parties, because it collects none.</p>
 
 <h2>Third-party distribution</h2>
-<p>If the app is obtained through the Microsoft Store or another platform, that platform may process data related to download, purchase, and licensing under its own policy. This policy describes only what the Audio EQ Overlay app itself does.</p>
+<p>If the app is obtained through the Microsoft Store, the Mac App Store or another platform, that platform may process data related to download, purchase, and licensing under its own policy. In the Mac App Store version, the free trial and the one-time purchase are handled by Apple; we never see your payment details, and the app only asks the App Store whether the trial has started and whether the purchase has been made. This policy describes only what the Audio EQ Overlay app itself does.</p>
 
 <h2>Children's privacy</h2>
 <p>Audio EQ Overlay does not collect personal information from anyone, including children.</p>
