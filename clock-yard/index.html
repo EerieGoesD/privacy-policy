@@ -19,7 +19,7 @@
 <p>Clock Yard ("the app") is an app from EERIE for running countdowns, stopwatches, Pomodoro and interval timers, counters and clocks side by side. Everything you create is kept on your own device. If you choose to switch on sync, a copy of your timers is also kept on a server we run, so your other devices show the same timers.</p>
 
 <h2>What we collect</h2>
-<p>Nothing unless you switch on sync. With sync off the app never contacts us and we hold no data about you. There is no account, no sign-in, no analytics, no telemetry and no tracking.</p>
+<p>Nothing unless you switch on sync, apart from the free trial record of the Android app described under Purchases. With sync off the app holds nothing about you on our side beyond that record. There is no account, no sign-in, no analytics, no telemetry and no tracking.</p>
 
 <h2>Where your data lives</h2>
 <p>Your boards, timers, their settings, notes and history, and the app's own settings are stored on your device, in the app's own storage folder.</p>
@@ -31,23 +31,24 @@
 <p>Turning sync off deletes the copy from the server. Your device keeps everything it has. You can also email us at the address below with your sync code and we will delete the copy.</p>
 
 <h2>Notifications</h2>
-<p>Alerts for timers that finish while the app is closed are scheduled with your own device. On iPhone, iPad and Mac the app asks for permission to show notifications the first time a running timer has an alert coming up, and on an iPhone they can also appear on a paired Apple Watch. On Windows they are shown as Windows notifications. Nothing about your timers is sent to us to deliver them.</p>
+<p>Alerts for timers that finish while the app is closed are scheduled with your own device. On iPhone, iPad and Mac the app asks for permission to show notifications the first time a running timer has an alert coming up, and on an iPhone they can also appear on a paired Apple Watch. On Windows they are shown as Windows notifications. On Android the app asks for permission to show notifications the first time a running timer has an alert coming up, and Android's "Alarms &amp; reminders" setting decides whether they ring on the second. Nothing about your timers is sent to us to deliver them.</p>
 
 <h2>Purchases</h2>
 <p>On iPhone, iPad and Mac, the free trial and the one-time purchase are handled by Apple through the App Store. Apple processes the payment and tells the app whether the trial or the purchase is active. We do not receive your payment details or your Apple ID.</p>
 <p>On Windows, Clock Yard is bought through the Microsoft Store, which handles the payment and any free trial. The app itself sells nothing. We do not receive your payment details or your Microsoft account.</p>
+<p>On Android, Clock Yard is free for 15 days and then a one-time purchase through Google Play. Google Play processes the payment and tells the app whether it has been bought. We do not receive your payment details or your Google account. So that the free trial counts once per phone, the app sends our server on Cloudflare a one-way hash of the phone's Android ID, never the ID itself, and the server keeps the date the trial started against that hash. The hash cannot be turned back into the ID and means nothing outside Clock Yard. Nothing else is sent with it.</p>
 
 <h2>Clipboard</h2>
 <p>When you press the copy button next to your sync code, the app writes that code to your clipboard. It never reads your clipboard.</p>
 
 <h2>Network use</h2>
-<p>With sync switched off the app works fully offline and does not connect to any server. Connections are opened only while sync is on and your timers are being kept in step, when the App Store checks or completes a purchase, or when you choose to click a link, such as the footer links, which opens that page in your default browser under that site's own privacy policy.</p>
+<p>With sync switched off the app works offline and does not connect to any server, except as follows. Connections are opened only while sync is on and your timers are being kept in step, when the App Store or Google Play checks or completes a purchase, when the Android app checks its free trial with our server, or when you choose to click a link, such as the footer links, which opens that page in your default browser under that site's own privacy policy.</p>
 
 <h2>What we don't collect</h2>
 <p>The app does not collect analytics, telemetry, usage data, or device information. The memory and processor figures it can show at the bottom of the window are read from your own device and never leave it. It does not use advertising SDKs. We do not sell or share your data with anyone, and we do not use it to build a profile of you.</p>
 
 <h2>Your control over your data</h2>
-<p>You can see, change and delete every board and timer from inside the app. Turning sync off deletes the copy on the server. On Windows, uninstalling the app deletes everything it stored on your computer.</p>
+<p>You can see, change and delete every board and timer from inside the app. Turning sync off deletes the copy on the server. On Windows and Android, uninstalling the app deletes everything it stored on your device. The Android trial record holds only a hash and a date, nothing that identifies you, so it cannot be matched to a request and is kept.</p>
 
 <h2>Children's privacy</h2>
 <p>Clock Yard is not aimed at children and we do not knowingly collect personal information from them.</p>
