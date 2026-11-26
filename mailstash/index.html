@@ -14,7 +14,7 @@
 <a href="/privacy-policy/" class="back">&lt; all policies</a>
 
 <h1>Mailstash Privacy Policy</h1>
-<p><em>Last updated: November 24, 2026</em></p>
+<p><em>Last updated: November 26, 2026</em></p>
 
 <p>Mailstash ("the app") is a desktop app from EERIE that shows the mail of your Gmail and Microsoft accounts in one place. It talks directly to Google and Microsoft from your own computer. EERIE runs no server for it, so your mail, your addresses and your sign-ins never reach us.</p>
 
@@ -32,6 +32,16 @@
 <h2>Where your data lives</h2>
 <p>The app keeps the list of accounts you added (each address, and whether it is Gmail or Microsoft) and your app settings in its own storage folder on your device. The sign-in passes are kept there too, locked with a key held in your system's own password store (Windows Credential Manager or the macOS Keychain), so the file is of no use on its own if it is copied. Your password is never stored.</p>
 <p>The emails themselves are not saved by the app. They are held in memory while Mailstash is open and fetched again when needed. The one exception is Download: it saves the email you are reading as a file, in the place you pick in your system's Save window, and that file is then yours like any other.</p>
+
+<h2>How your data is protected</h2>
+<p>Every connection the app makes to Google and Microsoft is encrypted with HTTPS. The sign-in passes are encrypted on your device with AES-256, using a key kept in your system's own password store (Windows Credential Manager or the macOS Keychain), so the stored file cannot be read without your system account. The short-lived passes used to reach your mail are kept in memory only and never written to disk. Your emails are never written to disk by the app, except when you choose Download.</p>
+<p>Because the app runs entirely on your device and EERIE runs no server for it, no Google user data is ever sent to, stored by or seen by EERIE or anyone else. Nobody at EERIE can read your mail.</p>
+
+<h2>How long data is kept, and how to delete it</h2>
+<p>Your emails, previews, labels and folder names are held in memory only while Mailstash is open. They are gone when you close the app, and the ones for an account are cleared at once when you remove it.</p>
+<p>Your account addresses, the sign-in passes and your settings stay on your device until you delete them. Remove Account deletes that account's address and sign-in pass from your device at once. Withdrawing Mailstash's access from your Google account (<a href="https://myaccount.google.com/connections">myaccount.google.com/connections</a>) stops the app reaching your Gmail straight away. Pictures from emails you open may stay in the built-in browser engine's temporary cache on your device. Downloaded email files stay where you saved them until you delete them.</p>
+<p>EERIE keeps no Google user data at all, so there is nothing for us to keep or delete on our side. If you have a question about your data, write to the address under Contact.</p>
+<p>Mailstash changes or deletes email in your mailbox only when you ask it to: it moves email to the Trash when you delete it, and deletes email from the Trash for good only when you choose Delete Selected or Empty Trash and confirm.</p>
 
 <h2>Pictures and links in emails</h2>
 <p>When you open an email, any pictures it links to are loaded from wherever the sender put them, as in other mail apps. This can let the sender know the email was opened. The app's built-in browser engine may keep those pictures in its temporary cache on your device. Links in an email open in your default browser, under that site's own privacy policy.</p>
